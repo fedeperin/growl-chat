@@ -123,7 +123,11 @@ function countMessages() {
         }else if(localStorage.getItem('timesSpamming') == 2) {
 
             localStorage.setItem('timesSpamming', 3)
+
             createMessage('./profile-imgs/mod-bot.png', 'Moderador', 'Lamentablemente quedaste bloqueado permanentemente por hacer spam', true)
+
+            socket.emit('new chat message', `${userName} quedo bloqueado permanentemente por haver spam`, 'Moderador', './profile-imgs/mod-bot.png', true)
+            
             localStorage.setItem('userBlocked', true)
         }
 
