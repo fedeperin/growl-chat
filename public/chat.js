@@ -392,13 +392,18 @@ function fetchGifs(urlForFetching) {
 // Close the gifs container
 closeGifs.addEventListener('click', () => {
     gifsContainer.style.left = '-100vw'
+
+    gifsPlace.innerHTML = ''
+    searchGifsForm.querySelector('input').value = ''
 })
 
 // Search Gifs
 searchGifsForm.addEventListener('submit', e => {
     e.preventDefault()
 
-    fetchGifs(`https://g.tenor.com/v1/search?q=${ searchGifsForm.querySelector('input').value }&key=LIVDSRZULELA&limit=10`)
+    if(searchGifsForm.querySelector('input').value.trim()) {
+        fetchGifs(`https://g.tenor.com/v1/search?q=${ searchGifsForm.querySelector('input').value }&key=LIVDSRZULELA&limit=16`)
+    }
 })
 
 // Open the gifs container
