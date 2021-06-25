@@ -389,3 +389,21 @@ body {
     position: absolute;
     left: -30px;
 }
+
+@media (max-width: 1000px) {
+    .gifs-container .gifs-place {
+        grid-template-columns: repeat(3, 1fr);
+    }    
+}
+
+@media (max-width: 500px) {
+    .gifs-container .gifs-place {
+        grid-template-columns: repeat(2, 1fr);
+    }    
+}
+
+@media (max-width: 400px) {
+    .gifs-container .gifs-place {
+        grid-template-columns: 1fr;
+    }    
+}

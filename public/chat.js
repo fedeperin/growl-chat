@@ -96,6 +96,9 @@ function createMessage(messageProfileImg, messageUserName, messageTextContent, u
     textContainer.appendChild(message)
 
     messages.appendChild(contMsg)
+
+    // Function for making gifs responsive
+    makeGifResponsive()
 }
 
 // Function for showing people connected
@@ -136,6 +139,18 @@ function countMessages() {
         modSound.play()
     }
 }
+
+// Function for making responsive the gifs
+function makeGifResponsive() {
+    document.querySelectorAll('.imageGif').forEach(gif => {
+        if(window.innerWidth <= gif.width + 200) {
+            gif.style.width = '100%'
+        }
+    })
+}
+
+// Listen previous function when the device is resized
+window.onresize = makeGifResponsive
 
 // Create random name
 for (var i = 0; i <= 4; i++) {
@@ -323,6 +338,11 @@ socket.on('new chat message', (othersMsg, otherUserSent, otherUserImgUrl, otherI
     // Play the sound
     notificationSound.currentTime = 0
     notificationSound.play()
+
+    // Function for making gifs responsive
+    if(otherInnerHTML == true) {
+        makeGifResponsive()
+    }
 })
 
 socket.on('i connected', personConnectedName => {
@@ -375,10 +395,10 @@ function fetchGifs(urlForFetching) {
 
                 gifsPlaceGif.addEventListener('click', () => {
                     // Socket emit a new message
-                    socket.emit('new chat message', `<img src="${ gif.media[0].gif.url }">`, userName, profileImageUrl, false)
+                    socket.emit('new chat message', `<img src="${ gif.media[0].gif.url }" class="imageGif">`, userName, profileImageUrl, false)
 
                     // Create message
-                    createMessage(profileImageUrl, userName, `<img src="${ gif.media[0].gif.url }">`, false)
+                    createMessage(profileImageUrl, userName, `<img src="${ gif.media[0].gif.url }" class="imageGif">`, false)
 
                     // Scroll to the bottom of the chat
                     messages.scrollTo(0, messages.scrollHeight)
