@@ -13,14 +13,14 @@ const profileImg = document.querySelector('.profile-img')
 const newNameForm = document.querySelector('form#changeName')
 const newNameInput = document.querySelector('form#changeName input')
 const opaqueBg = document.querySelector('.bg')
-const notificationSound = document.querySelector('audio')
+const notificationSound = new Audio('./sounds/mod.mp3')
 const addGifBtn = document.querySelector('#add-gif')
 const gifsContainer = document.querySelector('.gifs-container')
 const closeGifs = document.querySelector('.gifs-container .btn-close')
 const searchGifsForm = document.querySelector('.gifs-container form')
 const gifsPlace = document.querySelector('.gifs-container .gifs-place')
 const connectionsDiv = document.querySelector('.connections')
-const modSound = new Audio('./mod.mp3')
+const modSound = new Audio('./sounds/mod.mp3')
 
 const arrayProfileImgs = [
     '/profile-imgs/1.png',
