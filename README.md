@@ -1,6 +1,6 @@
 # Growl
 Un chat que se llama growl 🐻 <br>
-Para crearla utilizé Node js con las siguientes dependencias:
+Para crearla utilizé Node js con las siguientes tres dependencias:
 
 ### Dependencias que utilizé
 * Socket io: https://www.npmjs.com/package/socket.io
