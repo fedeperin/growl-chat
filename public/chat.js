@@ -13,14 +13,17 @@ const profileImg = document.querySelector('.profile-img')
 const newNameForm = document.querySelector('form#changeName')
 const newNameInput = document.querySelector('form#changeName input')
 const opaqueBg = document.querySelector('.bg')
-const notificationSound = new Audio('./sounds/notification.mp3')
 const addGifBtn = document.querySelector('#add-gif')
 const gifsContainer = document.querySelector('.gifs-container')
 const closeGifs = document.querySelector('.gifs-container .btn-close')
 const searchGifsForm = document.querySelector('.gifs-container form')
 const gifsPlace = document.querySelector('.gifs-container .gifs-place')
 const connectionsDiv = document.querySelector('.connections')
+const audioConfig = document.querySelector('.audio-config')
+const audioConfigCont = document.querySelector('.audio-config-cont')
+const audioConfigSelect = document.querySelector('.audio-config-cont select')
 const modSound = new Audio('./sounds/mod.mp3')
+let notificationSound = new Audio('./sounds/notification-1.mp3')
 
 const arrayProfileImgs = [
     '/profile-imgs/1.png',
@@ -51,6 +54,7 @@ let lastUserName = 'Anónimo '
 let profileImageUrl = '/profile-imgs/1.png'
 let messagesSent = 0
 let messageIntervalTime = 10000
+let notificationSoundNumber = 1
 
 // Generate random number
 function generateRandom(min, max) {
@@ -192,12 +196,36 @@ if (!localStorage.getItem('timesSpamming')) {
     localStorage.setItem('timesSpamming', 0)
 }
 
+if(!localStorage.getItem('audioNotificationUsed')) {
+    localStorage.setItem('audioNotificationUsed', notificationSoundNumber)
+}else {
+    notificationSoundNumber = localStorage.getItem('audioNotificationUsed')
+    notificationSound = new Audio(`./sounds/notification-${ notificationSoundNumber }.mp3`)
+}
+
 // Change the name by the created name
 profileInfoName.textContent = userName
 
 // Open/close menu
 menuBTN.addEventListener('click', () => {
     channels.classList.toggle('opened')
+})
+
+audioConfigSelect.addEventListener('change', () => {
+    notificationSoundNumber = audioConfigSelect.value.slice(-1)
+
+    notificationSound = new Audio(`./sounds/notification-${ notificationSoundNumber }.mp3`)
+    notificationSound.play()
+
+    localStorage.setItem('audioNotificationUsed', notificationSoundNumber)
+})
+
+// When the audio configuration btn was clicked
+audioConfig.addEventListener('click', () => {
+    opaqueBg.style.display = 'flex'
+    audioConfigCont.style.display = 'flex'
+
+    audioConfigSelect.value = `Audio ${ notificationSoundNumber }`
 })
 
 // When the message was sent...
@@ -300,6 +328,8 @@ profileInfoName.addEventListener('click', () => {
 opaqueBg.addEventListener('click', () => {
     newNameForm.style.display = 'none'
     profileImgs.style.display = 'none'
+    audioConfigCont.style.display = 'none'
+
     opaqueBg.style.display = 'none'
 })
 

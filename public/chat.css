@@ -390,6 +390,46 @@ body {
     left: -30px;
 }
 
+.audio-config {
+    position: fixed;
+    top: 17.5px;
+    right: 100px;
+    width: 40px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.audio-config:hover, .audio-config:focus {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.audio-config-cont {
+    padding: 15px;
+    background: #fff;
+    border-radius: 2px;
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.audio-config-cont h2 {
+    margin-bottom: 10px;
+}
+
+.audio-config-cont p {
+    max-width: 90%;
+}
+
+.audio-config-cont select {
+    outline: none;
+    border: 1px solid #999;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 2px;
+}
+
 @media (max-width: 1000px) {
     .gifs-container .gifs-place {
         grid-template-columns: repeat(3, 1fr);
