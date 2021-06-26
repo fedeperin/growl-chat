@@ -340,9 +340,7 @@ socket.on('new chat message', (othersMsg, otherUserSent, otherUserImgUrl, otherI
     notificationSound.play()
 
     // Function for making gifs responsive
-    if(otherInnerHTML == true) {
-        makeGifResponsive()
-    }
+    makeGifResponsive()
 })
 
 socket.on('i connected', personConnectedName => {
