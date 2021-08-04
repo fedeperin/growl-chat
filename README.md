@@ -1,6 +1,6 @@
 # Growl
 Un chat que se llama growl 🐻 <br>
-Demo: https://growl.herokuapp.com<br><br>
+Demo: https://growl.herokuapp.com <br><br>
 Para crearla utilizé [Node js](https://nodejs.org/) con las siguientes tres dependencias:
 
 ### Dependencias que utilizé
