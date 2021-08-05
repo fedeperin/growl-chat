@@ -4,7 +4,7 @@ Demo: https://growl.herokuapp.com <br><br>
 Para crearla utilizé [Node js](https://nodejs.org/) con las siguientes tres dependencias:
 
 ### Dependencias que utilizé
-* Socket io: https://www.npmjs.com/package/socket.io
+* Socket.io: https://www.npmjs.com/package/socket.io
 * Express: https://www.npmjs.com/package/express
 * Fs extra: https://www.npmjs.com/package/fs-extra
 
