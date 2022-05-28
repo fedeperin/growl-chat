@@ -12,6 +12,6 @@ Para crearla utilizé [Node js](https://nodejs.org/) con las siguientes tres dep
 Licenciado bajo la licencia [MIT](LICENSE)
 
 ## Instalación
-Después de descargar todos los archivos, ejecutar por terminal desde el directorio en el que los tenga descargados `` npm install express socket.io fs-extra `` <br><br>
+Después de descargar todos los archivos, ejecutar por terminal desde el directorio en el que los tenga descargados `` npm install `` <br><br>
 
 Con eso ya ejecutado, ejecutar `` node server.js `` para que la aplicación corra localmente desde http://localhost:8080
